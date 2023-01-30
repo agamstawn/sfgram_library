@@ -5,3 +5,14 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+
+book_list = JSON.parse(File.read('books.json'))
+
+book_list["books"].each do |book|
+  Book.create(book.to_h)
+end
+
+
+
+
