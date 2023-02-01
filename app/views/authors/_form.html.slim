@@ -1,10 +1,30 @@
 = form_with(model: @author) do |form|
-  - if @author.errors.any?
-    div style="color: red"
-      h2 = "#{pluralize(@author.errors.count, "error")} prohibited this author from being saved:"
-      ul
-        - @author.errors.each do |error|
-          li = error.full_message
-
-  div
-    = form.submit
+  .modal-body
+    - if @author.errors.any?
+      div style="color: red"
+        h2 = "#{pluralize(@author.errors.count, "error")} prohibited this author from being saved:"
+        ul
+          - @author.errors.each do |error|
+            li = error.full_message
+    .form-group.mb-3
+      = form.label :name, class: "form-label nb-2 mt-3"
+      = form.text_field :name, class: "form-control form-control-lg"
+    .form-group.mb-3
+      = form.label :gender, class: "form-label nb-2 mt-3"
+      = form.text_field :gender, class: "form-control form-control-lg"
+    .form-group.mb-3
+      = form.label :summary, class: "form-label nb-2 mt-3"
+      = form.text_area :summary, size: "70x5",class: "form-control form-control-lg"
+    .form-group.mb-3
+      = form.label :born, class: "form-label nb-2 mt-3"
+      = form.date_field :born, class: "form-control form-control-lg"
+    .form-group.mb-3
+      = form.label :died, class: "form-label nb-2 mt-3"
+      = form.date_field :died, class: "form-control form-control-lg"
+    .form-group.mb-3
+      = form.label :number_of_books, class: "form-label nb-2 mt-3"
+      = form.number_field :n_books, class: "form-control form-control-lg"
+  .modal-footer.form-group.mt-3
+    button.btn.btn-secondary.btn-lg[type="button" data-bs-dismiss="modal"]
+      | Close
+    = form.submit class:"btn btn-primary btn-lg me-md-2", data: {action: "click->bs-modal#submitEnd"}

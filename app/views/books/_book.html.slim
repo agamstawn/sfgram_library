@@ -1,1 +1,25 @@
-div id="#{dom_id book}"
+tr id="book_row_#{book.id}"
+  td
+    = book.title
+  td
+    = book.author_name
+  td
+    = book.year
+  td
+    = book.average_rating
+  td 
+    = link_to "View", book, class: "btn btn-info", data: { controller: "book-modal" }
+    = link_to "Edit", edit_book_path(book), class: "btn btn-secondary", data: { controller: "book-modal" }
+    = link_to "Destroy", book, data: { turbo_method: :delete, turbo_confirm: "Are you sure want to delete this book?"}, class: "btn btn-danger"
+  /td
+    .dropdown
+    button#dropdownMenuButton1.btn.btn-secondary.dropdown-toggle[type="button" data-bs-toggle="dropdown" aria-expanded="false"]
+      |  Actions 
+    ul.dropdown-menu[aria-labelledby="dropdownMenuButton1"]
+      li
+        = link_to "View", book, class: "dropdown-item", data: { controller: "book-modal" }
+      li
+        = link_to "Edit", edit_book_path(book), class: "dropdown-item", data: { controller: "book-modal" }
+      li
+        /= link_to "Delete", book, method: :delete, data: {confirm: "Are you sure ?"}, class: "dropdown-item"
+        = button_to "Destroy this book", book, method: :delete, data: {confirm: "Are you sure ?"}

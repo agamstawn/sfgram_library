@@ -1,0 +1,35 @@
+.modal-body 
+  .row 
+    .col-lg-12
+        p.lead
+        strong
+            | Name: 
+        = author.name
+
+        p.lead
+        strong
+            | Gender: 
+        = author.gender
+
+        p.lead
+        strong
+            | Summary: 
+        = author.summary
+
+        p.lead
+        strong
+            | Books: 
+        = author.books
+
+        p.lead
+        strong
+            | Born: 
+        = author.born.try(:strftime,"%d-%b-%Y")  
+
+        p.lead
+        strong
+            | Died: 
+        = author.died.try(:strftime,"%d-%b-%Y")
+.modal-footer 
+  button.btn.btn-secondary.btn-lg[type="button" data-bs-dismiss="modal"]
+    | Close

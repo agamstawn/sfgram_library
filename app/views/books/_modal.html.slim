@@ -1,0 +1,9 @@
+= turbo_frame_tag :remote_modal, tagret: :_top do
+  #exampleModal.modal.fade[tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-controller="bs-modal"]
+    .modal-dialog.modal-lg
+      .modal-content
+        .modal-header
+            h5#exampleModalLabel.modal-title
+              = modal_title
+            button.btn-close[type="button" data-bs-dismiss="modal" aria-label="Close"]
+        = render partial_name, book: book

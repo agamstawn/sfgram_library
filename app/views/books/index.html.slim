@@ -1,11 +1,33 @@
-p style="color: green" = notice
+p[style="color: green"]
+  = notice
+h1
+  | Books
 
-h1 Books
+.mb-3
+  = link_to "New Book", new_book_path, class: "btn btn-primary btn-lg mb-4", data: { controller: "book-modal" }
 
-#books
-  - @books.each do |book|
-    == render book
-    p
-      = link_to "Show this book", book
+table.table.table-bordered
+  thead
+    tr
+      th
+        |  Title
+      th
+        |  Author 
+      th
+        |  Year
+      th
+        |  Rating
+      th
+        |  Actions 
+  tbody#book_list
+    - @books.each do |book|
+      = render "book", book: book
 
-= link_to "New book", new_book_path
+#newbookModal.modal.fade[tabindex="-1" aria-labelledby="newbookModalLabel" aria-hidden="true"]
+  .modal-dialog
+    .modal-content
+      .modal-header
+        h5#newbookModalLabel.modal-title
+          | Modal title
+        button.btn-close[type="button" data-bs-dismiss="modal" aria-label="Close"]
+      div#newbookForm

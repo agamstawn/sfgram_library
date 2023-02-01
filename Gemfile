@@ -74,3 +74,4 @@ end
 
 gem "slim-rails"
 gem "pagy"
+gem "cssbundling-rails"

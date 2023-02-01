@@ -1,0 +1,22 @@
+.modal-body 
+  .row 
+    .col-lg-12 
+        p.lead
+        strong
+            | Title: 
+        = book.title
+        p.lead
+        strong
+            | Author: 
+        = book.author_name
+        p.lead
+        strong
+            | Year: 
+        = book.year
+        p.lead
+        strong
+            | Rating: 
+        = book.average_rating
+.modal-footer 
+  button.btn.btn-secondary.btn-lg[type="button" data-bs-dismiss="modal"]
+    | Close

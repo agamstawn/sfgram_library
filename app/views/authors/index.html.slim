@@ -1,11 +1,37 @@
-p style="color: green" = notice
+.container 
+  .row
+    p[style="color: green"]
+      = notice
+    h1
+      | Authors
 
-h1 Authors
+    .mb-3
+      = link_to "New Author", new_author_path, class: "btn btn-primary btn-lg mb-4", data: { controller: "author-modal" }
 
-#authors
-  - @authors.each do |author|
-    == render author
-    p
-      = link_to "Show this author", author
+    table.table.table-bordered
+      thead
+        tr
+          th
+            |  Name 
+          th
+            |  Gender 
+          th
+            |  Born
+          th
+            |  Died
+          th
+            |  Number of Books
+          th
+            |  Actions 
+      tbody#author_list
+        - @authors.each do |author|
+          = render "author", author: author
 
-= link_to "New author", new_author_path
+#newAuthorModal.modal.fade[tabindex="-1" aria-labelledby="newAuthorModalLabel" aria-hidden="true"]
+  .modal-dialog
+    .modal-content
+      .modal-header
+        h5#newAuthorModalLabel.modal-title
+          | Modal title
+        button.btn-close[type="button" data-bs-dismiss="modal" aria-label="Close"]
+      div#newAuthorForm
