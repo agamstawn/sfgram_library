@@ -16,8 +16,9 @@
       = form.label :year, class: "form-label nb-2 mt-3"
       = form.text_field :year, class: "form-control form-control-lg"
     .form-group.mb-3
-      = form.label :average_rating, class: "form-label nb-2 mt-3"
-      = form.number_field :average_rating, step: :any, class: "form-control form-control-lg"
+      = form.label :number_of_pages, class: "form-label nb-2 mt-3"
+      = form.number_field :pages, step: :any, class: "form-control form-control-lg"
+    
   .modal-footer.form-group.mt-3
     button.btn.btn-secondary.btn-lg[type="button" data-bs-dismiss="modal"]
       | Close

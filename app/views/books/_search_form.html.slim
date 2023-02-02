@@ -14,8 +14,16 @@
           = form.text_field :year_eq, class: "form-control"
 
         .form-group.mt-2
-          = form.label :by_number_of_pages, class: "form-label"
-          = form.text_field :pages_eq, class: "form-control"
+          = form.label :by_number_of_pages_less_than, class: "form-label"
+          = form.text_field :pages_lteq, class: "form-control"
+
+        .form-group.mt-2
+          = form.label :by_number_of_pages_greater_than, class: "form-label"
+          = form.text_field :pages_gteq, class: "form-control"
+        
+        .form-group.mt-2
+          = form.label :by_related_to_a_given_book, class: "form-label"
+          = form.text_field :similar_books_cont, class: "form-control"
         
         .form-group.mt-3 
           = form.submit "Search Book", class: "btn btn-primary btn-lg"

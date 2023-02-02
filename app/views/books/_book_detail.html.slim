@@ -5,18 +5,28 @@
         strong
             | Title: 
         = book.title
+        
         p.lead
         strong
             | Author: 
         = book.author_name
+        
         p.lead
         strong
             | Year: 
         = book.year
+        
         p.lead
         strong
-            | Rating: 
-        = book.average_rating
+            | Number Of Pages: 
+        = book.pages
+
+        p.lead
+        strong
+            | Similar Books: 
+        = get_book_name(book.similar_books)
+
+        
 .modal-footer 
   button.btn.btn-secondary.btn-lg[type="button" data-bs-dismiss="modal"]
     | Close

@@ -6,9 +6,9 @@ tr id="book_row_#{book.id}"
   td
     = book.year
   td
-    = book.average_rating
-  td
     = book.pages
+  td
+    = get_book_name(book.similar_books)
   td 
     = link_to "View", book, class: "btn btn-info me-2", data: { controller: "book-modal" }
     = link_to "Edit", edit_book_path(book), class: "btn btn-secondary me-2", data: { controller: "book-modal" }
