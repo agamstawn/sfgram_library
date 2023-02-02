@@ -5,8 +5,8 @@ RSpec.describe Book, type: :model do
     let(:book) {build :book}
     let(:book2) {build :book, title: book.title}
     
-    it "should be valid book with some attributes" do
-      expect(book.valid?).to eq(true)
+    it "should be invalid book without author" do
+      expect(book.valid?).to eq(false)
     end
 
     it "should raise invalid record exception for duplicate title" do

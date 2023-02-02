@@ -2,7 +2,7 @@ tr id="book_row_#{book.id}"
   td
     = book.title
   td
-    = book.author_name
+    = book.try(:author).try(:name)
   td
     = book.year
   td

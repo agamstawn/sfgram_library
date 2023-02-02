@@ -8,7 +8,7 @@ tr id="author_row_#{author.id}"
   td
     = author.died.try(:strftime,"%d-%b-%Y")
   td
-    = author.n_books
+    = author.books.count
   td 
     = link_to "View", author, class: "btn btn-info", data: { controller: "author-modal" }
     = link_to "Edit", edit_author_path(author), class: "btn btn-secondary ms-2", data: { controller: "author-modal" }
