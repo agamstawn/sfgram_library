@@ -3,7 +3,7 @@ class BooksController < ApplicationController
 
   # GET /books or /books.json
   def index
-    @q = Book.order(created_at: :desc).ransack(params[:q])
+    @q = Book.includes([:author]).order(created_at: :desc).ransack(params[:q])
     @pagy, @books = pagy(@q.result(distinct: false))
   end
 
