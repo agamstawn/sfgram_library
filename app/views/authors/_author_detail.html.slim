@@ -18,11 +18,6 @@
 
         p.lead
         strong
-            | Books: 
-        = author.books
-
-        p.lead
-        strong
             | Born: 
         = author.born.try(:strftime,"%d-%b-%Y")  
 
@@ -30,6 +25,16 @@
         strong
             | Died: 
         = author.died.try(:strftime,"%d-%b-%Y")
+
+        p.lead
+        strong
+            | Number of Books: 
+        = author.n_books
+
+        p.lead
+        strong
+            | Book Ids: 
+        = author.books
 .modal-footer 
   button.btn.btn-secondary.btn-lg[type="button" data-bs-dismiss="modal"]
     | Close

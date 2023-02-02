@@ -75,3 +75,4 @@ end
 gem "slim-rails"
 gem "pagy"
 gem "cssbundling-rails"
+gem "ransack"

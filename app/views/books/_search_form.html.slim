@@ -1,0 +1,22 @@
+ #offcanvasExample.offcanvas.offcanvas-start[tabindex="-1" aria-labelledby="offcanvasExampleLabel"]
+    .offcanvas-header
+      h5#offcanvasExampleLabel.offcanvas-title
+        | Search Navigation
+      button.btn-close.text-reset[type="button" data-bs-dismiss="offcanvas" aria-label="Close"]
+    .offcanvas-body
+      = search_form_for q, url: :books do |form|
+        .form-group.mt-2
+          = form.label :by_author, class: "form-label"
+          = form.text_field :author_name_cont, class: "form-control"
+
+        .form-group.mt-2
+          = form.label :by_year, class: "form-label"
+          = form.text_field :year_eq, class: "form-control"
+
+        .form-group.mt-2
+          = form.label :by_number_of_pages, class: "form-label"
+          = form.text_field :pages_eq, class: "form-control"
+        
+        .form-group.mt-3 
+          = form.submit "Search Book", class: "btn btn-primary btn-lg"
+          = link_to "Reset", books_path, class: "btn btn-outline-primary btn-lg ms-2"
