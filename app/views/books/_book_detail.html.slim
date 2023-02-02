@@ -9,7 +9,7 @@
         p.lead
         strong
             | Author: 
-        = book.author.name
+        = book.author.present? ? book.try(:author).try(:name) : book.author_name
         
         p.lead
         strong
