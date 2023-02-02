@@ -24,8 +24,8 @@ default: &default
 development:
   <<: *default
   database: sfgram_library_development
-  username: agamstawn
-  password: 123qwerty
+  username: agamstawn  # Change the username to your username postgre credential
+  password: 123qwerty  # Change the password to your password posgtre credential 
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.

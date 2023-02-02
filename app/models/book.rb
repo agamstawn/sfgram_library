@@ -1,7 +1,7 @@
 class Book < ApplicationRecord
     self.primary_key = :id
-    
-    belongs_to :author, :foreign_key => "author_id"
+    # uncomment this relation after all migration success
+    # belongs_to :author, :foreign_key => "author_id"
 
     validates :year, presence: true
     validates :title, presence: true, uniqueness: true
