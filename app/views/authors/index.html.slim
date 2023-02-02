@@ -7,6 +7,11 @@
 
     .mb-3
       = link_to "New Author", new_author_path, class: "btn btn-primary btn-lg mb-4", data: { controller: "author-modal" }
+    
+    p.mb-3
+      = "#{@authors.count} / #{Author.count} authors"
+    == pagy_bootstrap_nav(@pagy)
+
 
     table.table.table-bordered
       thead

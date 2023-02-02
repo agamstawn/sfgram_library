@@ -3,9 +3,8 @@ class AuthorsController < ApplicationController
 
   # GET /authors or /authors.json
   def index
-    @q = Author.ransack(params[:q])
-    @authors = @q.result(distinct: true)
-    @authors = Author.all
+    @q = Author.order(created_at: :desc).ransack(params[:q])
+    @pagy, @authors = pagy(@q.result(distinct: false))
   end
 
   # GET /authors/1 or /authors/1.json

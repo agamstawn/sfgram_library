@@ -14,5 +14,6 @@ RSpec.describe Book, type: :model do
       expect(book2.save).to eq(false)
       expect{book2.save!}.to raise_error(ActiveRecord::RecordInvalid)
     end
+    
   end
 end

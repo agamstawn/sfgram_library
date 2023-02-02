@@ -11,8 +11,8 @@ tr id="author_row_#{author.id}"
     = author.n_books
   td 
     = link_to "View", author, class: "btn btn-info", data: { controller: "author-modal" }
-    = link_to "Edit", edit_author_path(author), class: "btn btn-secondary", data: { controller: "author-modal" }
-    = link_to "Destroy", author, data: { turbo_method: :delete, turbo_confirm: "Are you sure want to delete this author?"}, class: "btn btn-danger"
+    = link_to "Edit", edit_author_path(author), class: "btn btn-secondary ms-2", data: { controller: "author-modal" }
+    = link_to "Destroy", author, data: { turbo_method: :delete, turbo_confirm: "Are you sure want to delete this author?"}, class: "btn btn-danger ms-2"
   
   /td
     .dropdown
