@@ -1,6 +1,5 @@
 class BooksController < ApplicationController
   before_action :set_book, only: %i[ show edit update destroy ]
-
   # GET /books or /books.json
   def index
     @q = Book.includes([:author]).order(created_at: :desc).ransack(params[:q])
@@ -25,6 +24,7 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
     respond_to do |format|
       if @book.save
+        update_author_name(book_params["author_id"].to_i)
         format.turbo_stream{render turbo_stream: turbo_stream.append("book_list", partial: "books/book", locals: {book: @book})}
         format.html { redirect_to book_url(@book), notice: "Book was successfully created." }
         format.json { render :show, status: :created, location: @book }
@@ -40,6 +40,7 @@ class BooksController < ApplicationController
   def update
     respond_to do |format|
       if @book.update(book_params)
+        update_author_name(book_params["author_id"].to_i)
         format.turbo_stream{render turbo_stream: turbo_stream.replace("book_row_#{@book.id}", partial: "books/book", locals: {book: @book})}
         format.html { redirect_to book_url(@book), notice: "Book was successfully updated." }
         format.json { render :show, status: :ok, location: @book }
@@ -66,6 +67,10 @@ class BooksController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_book
       @book = Book.find(params[:id])
+    end
+
+    def update_author_name(author_id)
+      @book.update(author_name: Author.find(author_id).name)
     end
 
     def sanitize_params
