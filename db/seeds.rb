@@ -7,16 +7,16 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 
-# book_list = JSON.parse(File.read('books.json'))
-
-# book_list["books"].each do |book|
-#   Book.create(book.to_h)
-# end
+book_list = JSON.parse(File.read('books.json'))
+# 1393
+book_list["books"].each do |book|
+  Book.create(book.sort_by { |key| key }.to_h)
+end
 
 author_list = JSON.parse(File.read('authors.json'))
-
+# 1258
 author_list["authors"].each do |author|
-  Author.create(author.to_h)
+  Author.create(author.sort_by { |key| key }.to_h)
 end
 
 

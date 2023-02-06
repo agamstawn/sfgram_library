@@ -5,6 +5,7 @@ class Author < ApplicationRecord
     # has_many :books, :foreign_key => "author_id"
     # accepts_nested_attributes_for :books
 
-    validates :gender, presence: true
-    validates :name, presence:true, uniqueness: true
+    # uncomment this validation after migration success
+    # validates :gender, presence: true
+    # validates :name, presence:true, uniqueness: true
 end

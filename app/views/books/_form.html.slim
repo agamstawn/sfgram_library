@@ -20,7 +20,7 @@
       = form.number_field :pages, step: :any, class: "form-control form-control-lg"
     .form-group.mb-3
       = form.label :author, class: "form-label nb-2 mt-3"
-      = form.select(:author_id, Author.all.collect { |a| [ a.name, a.id ] }, {:prompt => " - Select Author - "}, { :class => 'form-control form-control-lg' })
+      = form.select(:author_id, Author.order(name: :asc).collect { |a| [ a.name, a.id ] }, {:prompt => " - Select Author - "}, { :class => 'form-control form-control-lg' })
     
   .modal-footer.form-group.mt-3
     button.btn.btn-secondary.btn-lg[type="button" data-bs-dismiss="modal"]

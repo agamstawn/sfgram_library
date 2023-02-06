@@ -17,13 +17,9 @@ Things you may want to cover:
   
   Change the username and password in database.yml with your own credential postgre
 
-* Database creation and initialization
+* Database setup
  
   run/execute "bundle exec rails db:setup"
-
-* Database Seed
-  
-  run/execute "bundle exec rails db:seed"
   
   remove (".") from file migrations in db/migrate
   
@@ -31,17 +27,19 @@ Things you may want to cover:
   
     - .20230201152416_add_index_to_authors.rb
     - .20230201153159_add_index_to_books.rb
-    - .20230201153159_add_index_to_books.rb
+    - .20230202142334_add_author_reference_to_books.rb
   
   to:
   
     - 20230201152416_add_index_to_authors.rb
     - 20230201153159_add_index_to_books.rb
-    - 20230201153159_add_index_to_books.rb
+    - 20230202142334_add_author_reference_to_books.rb
   
-  uncomment book relational model after all migration success in models/book.rb
+  uncomment book relational model and validations after all migration success in models/book.rb
   
-  uncomment author relational model after all migration success in models/author.rb
+  uncomment author relational model and validations after all migration success in models/author.rb
+
+  update author_id column with author using this command " Book.all.map{|b| b.update(author_id: b.author)}" via console
 
 * How to setup bootstrap
   
